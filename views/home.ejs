@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Quản lý xe</title></head>
+<body>
+  <h2>Danh sách xe</h2>
+  <ul>
+    <% vehicles.forEach(v => { %>
+      <li>
+        <%= v.ten %> - <%= v.hang %> - <%= v.namSX %> - <%= v.gia %>
+        <form action="/delete/<%= v._id %>" method="POST" style="display:inline;">
+          <button>Xoá</button>
+        </form>
+        <form action="/update/<%= v._id %>" method="POST" style="display:inline;">
+          <input name="ten" placeholder="Tên mới">
+          <input name="hang" placeholder="Hãng mới">
+          <input name="namSX" type="number" placeholder="Năm">
+          <input name="gia" type="number" placeholder="Giá">
+          <button>Cập nhật</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h3>Thêm xe mới</h3>
+  <form action="/add" method="POST">
+    <input name="ten" placeholder="Tên">
+    <input name="hang" placeholder="Hãng">
+    <input name="namSX" type="number" placeholder="Năm sản xuất">
+    <input name="gia" type="number" placeholder="Giá">
+    <button>Thêm</button>
+  </form>
+</body>
+</html>
