@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm xe mới</title>
+  <style>
+    body { font-family: Arial; background-color: #e6f0ff; padding: 50px; }
+    h2 { text-align: center; color: #003366; }
+    form {
+      width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0073e6;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    button:hover { background-color: #0059b3; }
+  </style>
+</head>
+<body>
+  <h2>Thêm xe mới</h2>
+  <form action="/add" method="POST">
+    <input name="ten" placeholder="Tên xe" required>
+    <input name="hang" placeholder="Hãng xe" required>
+    <input name="namSX" type="number" placeholder="Năm sản xuất" required>
+    <input name="gia" type="number" placeholder="Giá xe" required>
+    <button>Thêm</button>
+  </form>
+</body>
+</html>

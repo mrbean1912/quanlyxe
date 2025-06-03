@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý xe</title>
+  <style>
+    body {
+      background-color: #e6f0ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0059b3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 80%;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #cce0ff;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #0073e6;
+    }
+
+    .btn-add {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #0073e6;
+      border-radius: 8px;
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .btn-add:hover {
+      background-color: #0059b3;
+    }
+
+    .hidden-form {
+      display: none;
+    }
+
+    tr:hover .hidden-form {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <header>Trang Quản lý xe hơi Hà Nội</header>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Tên xe</th>
+          <th>Hãng</th>
+          <th>Năm sản xuất</th>
+          <th>Giá</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% vehicles.forEach(v => { %>
+          <tr>
+            <td><%= v.ten %></td>
+            <td><%= v.hang %></td>
+            <td><%= v.namSX %></td>
+            <td><%= v.gia %></td>
+            <td>
+              <form action="/delete/<%= v._id %>" method="POST" style="display:inline;">
+                <button class="btn">Xoá</button>
+              </form>
+              <form action="/update/<%= v._id %>" method="GET" style="display:inline;">
+                <button class="btn">Cập nhật</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <form action="/add" method="GET">
+      <button class="btn-add">+ Thêm xe mới</button>
+    </form>
+  </div>
+</body>
+</html>
